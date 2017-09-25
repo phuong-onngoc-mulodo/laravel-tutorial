@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    /*public function archieve()
+    /*public static function incomplete()
     {
-      //return false;
+      return static::where('completed', 0)->get();
     }*/
+
+    public function scopeIncomplete($query)
+    {
+      return $query->where('completed', 0);
+    }
 }
