@@ -25,5 +25,6 @@ Route::get('tasks/{task}', function ($id) {
   //dd($task);
   //$tasks = DB::table('tasks')->latest()->get();
   $task = Task::find($id);
+  
   return view('tasks.show', compact('task'));
 });
