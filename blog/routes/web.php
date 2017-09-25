@@ -11,10 +11,10 @@
 |
 */
 
-use App\Task;
+/*use App\Task;
 
 Route::get('tasks', 'TasksController@index');
-Route::get('tasks/{task}', 'TasksController@show');
+Route::get('tasks/{task}', 'TasksController@show');*/
 
 /*Route::get('/tasks', function () {
   //$tasks = DB::table('tasks')->latest()->get();
@@ -31,3 +31,10 @@ Route::get('tasks/{task}', 'TasksController@show');
 
   return view('tasks.show', compact('task'));
 });*/
+
+Route::get('/', 'PostsController@index');
+Route::get('/posts/{post}', 'PostsController@show');
+
+//Controller => PostsController
+//Eloquent Model => Post
+//migration => create.posts.table
