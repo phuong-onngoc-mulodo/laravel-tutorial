@@ -13,18 +13,21 @@
 
 use App\Task;
 
-Route::get('/tasks', function () {
+Route::get('tasks', 'TasksController@index');
+Route::get('tasks/{task}', 'TasksController@show');
+
+/*Route::get('/tasks', function () {
   //$tasks = DB::table('tasks')->latest()->get();
   //return $tasks;
   $tasks = Task::all();
   return view('tasks.index', compact('tasks'));
-});
+});*/
 
-Route::get('tasks/{task}', function ($id) {
+/*Route::get('tasks/{task}', function ($id) {
   //$task = DB::table('tasks')->find($id);
-  //dd($task);
+  //dd($task); //tinker
   //$tasks = DB::table('tasks')->latest()->get();
   $task = Task::find($id);
-  
+
   return view('tasks.show', compact('task'));
-});
+});*/
