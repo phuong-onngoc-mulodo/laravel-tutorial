@@ -26,6 +26,10 @@ class PostsController extends Controller
     public function store()
     {
       //dd(request(['title', 'body']));
+      $this->validate(request(), [
+        'title' => /*'required|max:10'*/'required',
+        'body' => 'required'
+      ]);
       // Create a new post using the request data
       //$post = new Post;
 
