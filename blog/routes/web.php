@@ -32,11 +32,20 @@ Route::get('tasks/{task}', 'TasksController@show');*/
   return view('tasks.show', compact('task'));
 });*/
 
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show');
 Route::post('/posts', 'PostsController@store');
 Route::post('/posts/{post}/{comment}', 'CommentsController@store');
+
+//Route::get('/register', 'AuthController@register');
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+//Route::get('/login', 'AuthController@login');
+Route::get('/login', 'SessionsController@create');
+Route::post('/login', 'SessionsController@store');
+Route::get('/logout', 'SessionsController@destroy');
+
 //Controller => PostsController
 //Eloquent Model => Post
 //migration => create.posts.table
