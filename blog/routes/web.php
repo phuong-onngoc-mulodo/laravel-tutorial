@@ -36,14 +36,16 @@ Route::get('tasks/{task}', 'TasksController@show');*/
   return new \App\Billing\Stripe(config('services.stripe.secret'));
 });*/
 
-App::singleton('App\Billing\Stripe', function(){
+/*App::singleton('App\Billing\Stripe', function(){
   return new \App\Billing\Stripe(config('services.stripe.secret'));
-});
+});*/
 
 //$stripe = App::make('App\Billing\Stripe');
 /*$stripe = resolve('App\Billing\Stripe');
 
 dd($stripe);*/
+
+dd(resolve('App\Billing\Stripe'));
 
 Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/create', 'PostsController@create');
