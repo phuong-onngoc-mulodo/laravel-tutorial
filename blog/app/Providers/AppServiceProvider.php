@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema; //add
+use App\Billing\Stripe;
 
 class AppServiceProvider extends ServiceProvider
 {
+    protected $defer = true;
     /**
      * Bootstrap any application services.
      *
@@ -27,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+      $this->app->singleton(Stripe::class, function(){
+        return new \App\Billing\Stripe(config('services.stripe.secret'));
+      });
     }
 }
