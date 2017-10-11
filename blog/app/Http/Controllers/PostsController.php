@@ -14,15 +14,14 @@ class PostsController extends Controller
   {
     $this->middleware('auth')->except(['index', 'show']);
   }
-  public function index(Posts $posts)
+  public function index()
   {
     //return session('message');
     //dd($posts);
-    $posts = $posts->all();
-
-    /*$posts = Post::latest()
+    //$posts = $posts->all();
+    $posts = Post::latest()
       ->filter(request(['month', 'year']))
-      ->get();*/
+      ->get();
 
     // $posts = Post::latest();
     //
