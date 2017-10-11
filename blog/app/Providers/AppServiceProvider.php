@@ -8,7 +8,7 @@ use App\Billing\Stripe;
 
 class AppServiceProvider extends ServiceProvider
 {
-    protected $defer = true;
+    // protected $defer = true;
     /**
      * Bootstrap any application services.
      *
@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191); //add
+
         view()->composer('layouts.sidebar', function($view){
           $view->with('archives', \App\Post::archives());
         });
