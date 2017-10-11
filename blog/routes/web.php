@@ -53,6 +53,8 @@ Route::get('/posts/{post}', 'PostsController@show');
 Route::post('/posts', 'PostsController@store');
 Route::post('/posts/{post}/{comment}', 'CommentsController@store');
 
+Route::get('/posts/tags/{tag}', 'TagsController@index');
+
 //Route::get('/register', 'AuthController@register');
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
